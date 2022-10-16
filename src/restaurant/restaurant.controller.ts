@@ -8,8 +8,8 @@ export class RestaurantController {
   constructor(private readonly restaurantService: RestaurantService) {}
 
   @Post()
-  create(@Body() createRestaurantDto: CreateRestaurantDto) {
-    return this.restaurantService.create(createRestaurantDto);
+  create(@Body() createRestaurant: CreateRestaurantDto) {
+    return this.restaurantService.create(createRestaurant);
   }
 
   @Get()
@@ -19,16 +19,16 @@ export class RestaurantController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.restaurantService.findOne(+id);
+    return this.restaurantService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateRestaurantDto: UpdateRestaurantDto) {
-    return this.restaurantService.update(+id, updateRestaurantDto);
+  update(@Param('id') id: string, @Body() updateRestaurant: UpdateRestaurantDto) {
+    return this.restaurantService.update(id, updateRestaurant);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.restaurantService.remove(+id);
+    return this.restaurantService.remove(id);
   }
 }

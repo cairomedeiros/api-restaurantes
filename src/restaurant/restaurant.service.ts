@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable} from '@nestjs/common';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { UpdateRestaurantDto } from './dto/update-restaurant.dto';
 import { Restaurant } from './entities/restaurant.entity';
@@ -10,6 +10,7 @@ export class RestaurantService {
   constructor(private restaurantRepository: RestaurantRepository){
 
   }
+
   create(createRestaurant: CreateRestaurantDto): Restaurant {
     return this.restaurantRepository.create(createRestaurant);
   }

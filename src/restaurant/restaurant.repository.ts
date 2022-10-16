@@ -14,7 +14,7 @@ export class RestaurantRepository {
   }
 
   private convertToRestaurant(createRestaurant: CreateRestaurantDto): Restaurant {
-    const restaurant = new Restaurant;
+    const restaurant = new Restaurant();
 
     restaurant.name = createRestaurant.name;
     restaurant.userName = createRestaurant.userName;
@@ -27,24 +27,24 @@ export class RestaurantRepository {
     return restaurant;
   }
 
-  create(createRestaurant: CreateRestaurantDto): Restaurant {
+  public create(createRestaurant: CreateRestaurantDto): Restaurant {
     const restaurant = this.convertToRestaurant(createRestaurant);
     restaurant.id = randomUUID();
     this.restaurants.push(restaurant);
     return restaurant;
   }
 
-  findAll() {
+  public findAll() {
     return this.restaurants;
   }
 
-  findOne(id: string): Restaurant {
+  public findOne(id: string): Restaurant {
     const restaurant = this.restaurants.find((restaurant) => restaurant.id === id);
     if (!restaurant) throw new NotFoundException();
     return restaurant;
   }
 
-  update(id: string, updateRestaurant: UpdateRestaurantDto) {
+  public update(id: string, updateRestaurant: UpdateRestaurantDto) {
     const restaurant = this.findOne(id);
     if (updateRestaurant.name) restaurant.name = updateRestaurant.name;
     if (updateRestaurant.openingHours) restaurant.openingHours = updateRestaurant.openingHours;
@@ -52,7 +52,7 @@ export class RestaurantRepository {
     return restaurant;
   }
 
-  remove(id: string) {
+  public remove(id: string) {
     const index = this.restaurants.findIndex((prop) => prop.id === id);
     if (index < 0) throw new NotFoundException();
     this.restaurants.splice(index, 1);
