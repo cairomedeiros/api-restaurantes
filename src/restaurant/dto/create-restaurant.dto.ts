@@ -4,5 +4,7 @@ export class CreateRestaurantDto implements RestaurantCreatableInterface {
     userName!: string;
     password!: string;
     name!: string;
+    address!: string;
+    openingHours!: string;
     email!: string;
 }

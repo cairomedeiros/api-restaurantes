@@ -1,26 +1,32 @@
 import { Injectable } from '@nestjs/common';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { UpdateRestaurantDto } from './dto/update-restaurant.dto';
+import { Restaurant } from './entities/restaurant.entity';
+import { RestaurantRepository } from './restaurant.repository';
 
 @Injectable()
 export class RestaurantService {
-  create(createRestaurantDto: CreateRestaurantDto) {
-    return 'This action adds a new restaurant';
+
+  constructor(private restaurantRepository: RestaurantRepository){
+
+  }
+  create(createRestaurant: CreateRestaurantDto): Restaurant {
+    return this.restaurantRepository.create(createRestaurant);
   }
 
   findAll() {
-    return `This action returns all restaurant`;
+    return this.restaurantRepository.findAll();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} restaurant`;
+  findOne(id: string): Restaurant {
+    return this.restaurantRepository.findOne(id);
   }
 
-  update(id: number, updateRestaurantDto: UpdateRestaurantDto) {
-    return `This action updates a #${id} restaurant`;
+  update(id: string, updateRestaurant: UpdateRestaurantDto) {
+    return this.restaurantRepository.update(id, updateRestaurant);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} restaurant`;
+  remove(id: string) {
+    return this.restaurantRepository.remove(id);
   }
 }
