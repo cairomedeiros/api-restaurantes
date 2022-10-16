@@ -1,4 +1,8 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateRestaurantDto } from './create-restaurant.dto';
+import { RestaurantUpdatableInterface } from '../interfaces/restaurant-updatable.interface';
 
-export class UpdateRestaurantDto extends PartialType(CreateRestaurantDto) {}
+export class UpdateRestaurantDto implements RestaurantUpdatableInterface {
+    name?: string;
+    address?: string;
+    openingHours?: string;
+    active?: boolean;
+}
