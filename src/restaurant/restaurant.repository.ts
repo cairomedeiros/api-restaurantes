@@ -20,7 +20,7 @@ export class RestaurantRepository {
     restaurant.userName = createRestaurant.userName;
     restaurant.email = createRestaurant.email;
     restaurant.password = createRestaurant.password;
-    restaurant.address = createRestaurant.password;
+    restaurant.address = createRestaurant.address;
     restaurant.openingHours = createRestaurant.openingHours;
     restaurant.active = true;
 

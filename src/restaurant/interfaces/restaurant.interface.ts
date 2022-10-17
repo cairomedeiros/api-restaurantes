@@ -5,5 +5,5 @@ export interface RestaurantInterface{
     userName: string;
     password: string;
     salt: string;
-    active: true;
+    active: boolean;
 }
