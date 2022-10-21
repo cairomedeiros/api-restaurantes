@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ParseUUIDPipe, UsePipes } from '@nestjs/common';
 import { RestaurantService } from './restaurant.service';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { UpdateRestaurantDto } from './dto/update-restaurant.dto';
+import { IsUUIDParam } from 'src/common/decorators/is-uuidparam.decorator';
 
 @Controller('restaurant')
 export class RestaurantController {
@@ -18,7 +19,7 @@ export class RestaurantController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@IsUUIDParam('id') id: string) {
     return this.restaurantService.findOne(id);
   }
 
