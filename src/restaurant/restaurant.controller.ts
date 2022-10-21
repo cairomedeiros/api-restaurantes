@@ -3,6 +3,7 @@ import { RestaurantService } from './restaurant.service';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { UpdateRestaurantDto } from './dto/update-restaurant.dto';
 import { IsUUIDParam } from 'src/common/decorators/is-uuidparam.decorator';
+import { ApiOkResponse, ApiOperation } from '@nestjs/swagger';
 
 @Controller('restaurant')
 export class RestaurantController {
@@ -13,6 +14,13 @@ export class RestaurantController {
     return this.restaurantService.create(createRestaurant);
   }
 
+  @ApiOperation({
+    operationId: 'restaurant_findall',
+    description: 'metodo que vai retornar todos os restaurantes cadastrados'
+  })
+  @ApiOkResponse({
+    description: 'Restaurant created with success',
+  })
   @Get()
   findAll() {
     return this.restaurantService.findAll();
