@@ -1,6 +1,6 @@
 import { RestaurantInterface } from '../interfaces/restaurant.interface';
 
-export class UserDto implements RestaurantInterface {
+export class RestaurantDto implements RestaurantInterface {
   id: string;
   createdAt: Date;
   updatedAt: Date;
