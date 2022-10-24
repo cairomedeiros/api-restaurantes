@@ -1,5 +1,6 @@
 import { RestaurantInterface } from "../interfaces/restaurant.interface";
 
+
 export class Restaurant implements RestaurantInterface{
     id: string;
     name: string;
